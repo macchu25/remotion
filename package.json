@@ -7,13 +7,13 @@
   "private": true,
   "dependencies": {
     "@remotion/cli": "4.0.514",
+    "@remotion/tailwind-v4": "4.0.514",
     "@remotion/zod-types": "4.0.514",
     "react": "19.2.3",
     "react-dom": "19.2.3",
     "remotion": "4.0.514",
-    "zod": "4.4.3",
-    "@remotion/tailwind-v4": "4.0.514",
-    "tailwindcss": "4.0.0"
+    "tailwindcss": "4.0.0",
+    "zod": "4.4.3"
   },
   "devDependencies": {
     "@remotion/eslint-config-flat": "4.0.514",
@@ -25,6 +25,9 @@
   },
   "scripts": {
     "dev": "remotion studio",
+    "render": "remotion render src/index.ts PrimeMasterclassShort out/prime_masterclass_short.mp4 --concurrency=100% --gl=angle",
+    "render:fast": "remotion render src/index.ts PrimeMasterclassShort out/prime_masterclass_short.mp4 --concurrency=100% --gl=angle",
+    "clean": "node -e \"const fs=require('fs'); ['node_modules/.cache', '.remotion'].forEach(p => fs.rmSync(p, {recursive: true, force: true})); console.log('Remotion Studio Cache Cleared Cleanly!');\"",
     "build": "remotion bundle",
     "upgrade": "remotion upgrade",
     "lint": "eslint src && tsc"

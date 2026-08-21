@@ -1,0 +1,146 @@
+[
+  {
+    "index": 0,
+    "text": "Có một quy tắc toán học mà chúng ta học thuộc... nhưng hiếm ai giải thích tại sao.",
+    "durSec": 6.024,
+    "frames": 181,
+    "startFrame": 0,
+    "endFrame": 181
+  },
+  {
+    "index": 1,
+    "text": "Tại sao hai số âm nhân nhau... lại biến thành số dương?",
+    "durSec": 4.728,
+    "frames": 142,
+    "startFrame": 181,
+    "endFrame": 323
+  },
+  {
+    "index": 2,
+    "text": "Không phải vì toán học tự nhiên quyết định rằng hai cái âm thì phải thành dương.",
+    "durSec": 5.736,
+    "frames": 172,
+    "startFrame": 323,
+    "endFrame": 495
+  },
+  {
+    "index": 3,
+    "text": "Hãy nghĩ phép nhân là một chuyển động trên trục số.",
+    "durSec": 3.744,
+    "frames": 112,
+    "startFrame": 495,
+    "endFrame": 607
+  },
+  {
+    "index": 4,
+    "text": "Ba nhân hai: ta tiến ba đơn vị, hai lần.",
+    "durSec": 4.416,
+    "frames": 132,
+    "startFrame": 607,
+    "endFrame": 739
+  },
+  {
+    "index": 5,
+    "text": "Nhưng nếu đổi số hai thành âm hai... hướng chuyển động bị đảo ngược.",
+    "durSec": 5.376,
+    "frames": 161,
+    "startFrame": 739,
+    "endFrame": 900
+  },
+  {
+    "index": 6,
+    "text": "Một dấu âm, về bản chất, có thể hiểu như một lệnh: đảo hướng.",
+    "durSec": 5.352,
+    "frames": 161,
+    "startFrame": 900,
+    "endFrame": 1061
+  },
+  {
+    "index": 7,
+    "text": "Vậy nhân với âm một lần... nó quay bạn lại.",
+    "durSec": 3.312,
+    "frames": 99,
+    "startFrame": 1061,
+    "endFrame": 1160
+  },
+  {
+    "index": 8,
+    "text": "Nhưng nhân với số âm thêm một lần nữa... bạn lại bị đảo hướng lần thứ hai.",
+    "durSec": 5.736,
+    "frames": 172,
+    "startFrame": 1160,
+    "endFrame": 1332
+  },
+  {
+    "index": 9,
+    "text": "Và hai lần đảo... đưa bạn trở lại hướng ban đầu. Đó là trực giác.",
+    "durSec": 5.664,
+    "frames": 170,
+    "startFrame": 1332,
+    "endFrame": 1502
+  },
+  {
+    "index": 10,
+    "text": "Nhưng toán học còn ép kết quả phải là số dương.",
+    "durSec": 3.552,
+    "frames": 107,
+    "startFrame": 1502,
+    "endFrame": 1609
+  },
+  {
+    "index": 11,
+    "text": "Ta biết một cộng âm một bằng không.",
+    "durSec": 2.832,
+    "frames": 85,
+    "startFrame": 1609,
+    "endFrame": 1694
+  },
+  {
+    "index": 12,
+    "text": "Vì vậy: âm một nhân với một cộng âm một... phải bằng không.",
+    "durSec": 4.944,
+    "frames": 148,
+    "startFrame": 1694,
+    "endFrame": 1842
+  },
+  {
+    "index": 13,
+    "text": "Phân phối âm một vào bên trong, ta có: âm một... cộng với âm một nhân âm một... bằng không.",
+    "durSec": 7.68,
+    "frames": 230,
+    "startFrame": 1842,
+    "endFrame": 2072
+  },
+  {
+    "index": 14,
+    "text": "Vậy số nào cộng với âm một để bằng không? Chỉ có dương một.",
+    "durSec": 4.632,
+    "frames": 139,
+    "startFrame": 2072,
+    "endFrame": 2211
+  },
+  {
+    "index": 15,
+    "text": "Vì thế: âm một nhân âm một bằng dương một. Và nói rộng hơn, âm nhân âm bắt buộc phải thành dương.",
+    "durSec": 8.184,
+    "frames": 246,
+    "startFrame": 2211,
+    "endFrame": 2457
+  },
+  {
+    "index": 16,
+    "text": "Nếu quy tắc này không đúng... những quy tắc cơ bản của số học sẽ bắt đầu tự mâu thuẫn.",
+    "durSec": 6.624,
+    "frames": 199,
+    "startFrame": 2457,
+    "endFrame": 2656
+  },
+  {
+    "index": 17,
+    "text": "Nhưng số âm từng dẫn tới một thứ còn kỳ lạ hơn. Làm sao căn bậc hai của âm một... lại có thể tồn tại?",
+    "durSec": 9.168,
+    "frames": 275,
+    "startFrame": 2656,
+    "endFrame": 2931
+  }
+]

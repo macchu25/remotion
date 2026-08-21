@@ -1,0 +1,130 @@
+[
+  {
+    "index": 0,
+    "text": "Có một thứ giúp bảo vệ dữ liệu trên Internet… chỉ vì một phép toán rất dễ làm theo một chiều, nhưng cực khó làm ngược lại.",
+    "durSec": 9.192,
+    "frames": 276,
+    "startFrame": 0,
+    "endFrame": 276
+  },
+  {
+    "index": 1,
+    "text": "Nhân hai số với nhau cực dễ.",
+    "durSec": 2.712,
+    "frames": 81,
+    "startFrame": 276,
+    "endFrame": 357
+  },
+  {
+    "index": 2,
+    "text": "Nhưng nếu tôi chỉ đưa bạn 3233, và hỏi hai số nguyên tố nào đã tạo ra nó, bạn phải tìm ngược lại các thừa số của nó.",
+    "durSec": 10.416,
+    "frames": 312,
+    "startFrame": 357,
+    "endFrame": 669
+  },
+  {
+    "index": 3,
+    "text": "Với một số nhỏ như thế này, chẳng khó chút nào.",
+    "durSec": 4.056,
+    "frames": 122,
+    "startFrame": 669,
+    "endFrame": 791
+  },
+  {
+    "index": 4,
+    "text": "Nhưng bây giờ, hãy dùng hai số nguyên tố dài hàng trăm chữ số.",
+    "durSec": 5.28,
+    "frames": 158,
+    "startFrame": 791,
+    "endFrame": 949
+  },
+  {
+    "index": 5,
+    "text": "Máy tính vẫn có thể nhân chúng rất nhanh.",
+    "durSec": 3.072,
+    "frames": 92,
+    "startFrame": 949,
+    "endFrame": 1041
+  },
+  {
+    "index": 6,
+    "text": "Nhưng chỉ từ kết quả mà tìm lại hai số ban đầu… lại là một bài toán khó khủng khiếp khi các số đủ lớn.",
+    "durSec": 7.824,
+    "frames": 235,
+    "startFrame": 1041,
+    "endFrame": 1276
+  },
+  {
+    "index": 7,
+    "text": "Đó là bài toán phân tích một số lớn thành các thừa số nguyên tố.",
+    "durSec": 5.208,
+    "frames": 156,
+    "startFrame": 1276,
+    "endFrame": 1432
+  },
+  {
+    "index": 8,
+    "text": "Và đây là ý tưởng đứng sau RSA, một hệ mật mã khóa công khai nổi tiếng.",
+    "durSec": 6.648,
+    "frames": 199,
+    "startFrame": 1432,
+    "endFrame": 1631
+  },
+  {
+    "index": 9,
+    "text": "Bạn có thể công khai một phần thông tin để người khác mã hóa dữ liệu cho bạn, nhưng biết khóa công khai không đồng nghĩa với việc bạn dễ dàng tìm ra bí mật phía sau.",
+    "durSec": 10.968,
+    "frames": 329,
+    "startFrame": 1631,
+    "endFrame": 1960
+  },
+  {
+    "index": 10,
+    "text": "Đó là cái hay.",
+    "durSec": 1.584,
+    "frames": 48,
+    "startFrame": 1960,
+    "endFrame": 2008
+  },
+  {
+    "index": 11,
+    "text": "Tạo ra bài toán thì dễ…",
+    "durSec": 2.28,
+    "frames": 68,
+    "startFrame": 2008,
+    "endFrame": 2076
+  },
+  {
+    "index": 12,
+    "text": "nhưng đảo ngược nó thì khó.",
+    "durSec": 2.256,
+    "frames": 68,
+    "startFrame": 2076,
+    "endFrame": 2144
+  },
+  {
+    "index": 13,
+    "text": "Và trong mật mã, sự chênh lệch giữa dễ đi tới và khó đi ngược có thể trở thành một lớp bảo vệ.",
+    "durSec": 7.512,
+    "frames": 225,
+    "startFrame": 2144,
+    "endFrame": 2369
+  },
+  {
+    "index": 14,
+    "text": "Nhưng có một vấn đề. Máy tính lượng tử đủ mạnh có thể khiến một số hệ mật mã kiểu này gặp rắc rối.",
+    "durSec": 7.968,
+    "frames": 239,
+    "startFrame": 2369,
+    "endFrame": 2608
+  },
+  {
+    "index": 15,
+    "text": "Vậy một máy tính lượng tử có thể phá RSA như thế nào?",
+    "durSec": 4.8,
+    "frames": 144,
+    "startFrame": 2608,
+    "endFrame": 2752
+  }
+]

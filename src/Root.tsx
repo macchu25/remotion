@@ -1,47 +1,58 @@
 import "./index.css";
 import { Composition } from "remotion";
-import { HelloWorld, myCompSchema } from "./HelloWorld";
-import { Logo, myCompSchema2 } from "./HelloWorld/Logo";
+import { EvolutionMasterFilm } from "./evolution/EvolutionMasterFilm";
+import { TOTAL_FILM_FRAMES } from "./evolution/timeline/chapterCues";
+import { DivideByZeroShort } from "./DivideByZeroShort";
+import { NegativeTimesNegativeShort } from "./NegativeTimesNegativeShort";
+import { PrimeProtectionShort, primeCompSchema } from "./PrimeProtectionShort";
+import {
+  PrimeMasterclassShort,
+  masterclassCompSchema,
+} from "./PrimeMasterclassShort";
 
-// Each <Composition> is an entry in the sidebar!
+// ===========================================================================
+// REMOTION ROOT — MASTER FILM & SHORTS
+// ===========================================================================
 
 export const RemotionRoot: React.FC = () => {
   return (
     <>
-      <Composition
-        // You can take the "id" to render a video:
-        // npx remotion render HelloWorld
-        id="HelloWorld"
-        component={HelloWorld}
-        durationInFrames={150}
-        fps={30}
-        width={1920}
-        height={1080}
-        // You can override these props for each render:
-        // https://www.remotion.dev/docs/parametrized-rendering
-        schema={myCompSchema}
-        defaultProps={{
-          titleText: "Welcome to Remotion",
-          titleColor: "#000000",
-          logoColor1: "#91EAE4",
-          logoColor2: "#86A8E7",
-        }}
-      />
+      {/* ===== THE EVOLUTION OF MATHEMATICS — MASTER FILM (16:9 1080p) ===== */}
 
-      {/* Mount any React component to make it show up in the sidebar and work on it individually! */}
+      {/* ===== MASTERCLASS PEDAGOGY SHORT (COMPREHENSIVE PEDAGOGY EDITION) ===== */}
       <Composition
-        id="OnlyLogo"
-        component={Logo}
-        durationInFrames={150}
+        id="PrimeMasterclassShort"
+        component={PrimeMasterclassShort}
+        durationInFrames={1933}
         fps={30}
-        width={1920}
-        height={1080}
-        schema={myCompSchema2}
+        width={1080}
+        height={1920}
+        schema={masterclassCompSchema}
         defaultProps={{
-          logoColor1: "#91dAE2" as const,
-          logoColor2: "#86A8E7" as const,
+          playbackSpeed: 2.8,
+          bgmEnabled: true,
+          bgmTrack: "custom_bgm.mp3",
+          bgmVolume: 0.08,
         }}
       />
+      <Composition
+        id="PrimeMasterclassShortFull"
+        component={PrimeMasterclassShort}
+        durationInFrames={5413}
+        fps={30}
+        width={1080}
+        height={1920}
+        schema={masterclassCompSchema}
+        defaultProps={{
+          playbackSpeed: 1.75,
+          bgmEnabled: true,
+          bgmTrack: "",
+          bgmVolume: 0.08,
+        }}
+      />
+      {/* ===== PRIME PROTECTION SHORT (VERSION 1) ===== */}
+      {/* ===== SHORT 02: NEGATIVE × NEGATIVE = POSITIVE ===== */}
+      {/* ===== SHORT 01: DIVIDE BY ZERO ===== */}
     </>
   );
 };

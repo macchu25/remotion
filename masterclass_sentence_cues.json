@@ -1,0 +1,178 @@
+[
+  {
+    "index": 0,
+    "text": "Giả sử bạn muốn gửi cho tôi một tin nhắn bí mật qua Internet... nhưng dữ liệu phải đi qua mạng, nên người khác có thể chặn nó giữa đường.",
+    "durSec": 9.6,
+    "frames": 288,
+    "startFrame": 0,
+    "endFrame": 288
+  },
+  {
+    "index": 1,
+    "text": "Cách đơn giản nhất là dùng một mật khẩu chung để khóa tin nhắn... Nhưng làm sao tôi gửi mật khẩu bí mật đó cho bạn mà không bị lấy mất?",
+    "durSec": 9.84,
+    "frames": 295,
+    "startFrame": 288,
+    "endFrame": 583
+  },
+  {
+    "index": 2,
+    "text": "Vấn đề không chỉ là mã hóa. Vấn đề là làm sao chia sẻ chìa khóa bí mật an toàn!",
+    "durSec": 6.888,
+    "frames": 207,
+    "startFrame": 583,
+    "endFrame": 790
+  },
+  {
+    "index": 3,
+    "text": "Hãy tưởng tượng tôi phát cho cả thế giới những chiếc ổ khóa mở sẵn. Ai cũng được lấy một cái, nhưng chìa khóa mở chúng thì chỉ mình tôi giữ.",
+    "durSec": 10.656,
+    "frames": 320,
+    "startFrame": 790,
+    "endFrame": 1110
+  },
+  {
+    "index": 4,
+    "text": "Bạn lấy ổ khóa của tôi, khóa thông tin lại rồi gửi. Ai cũng có thể khóa, nhưng chỉ duy nhất tôi mở được.",
+    "durSec": 8.736,
+    "frames": 262,
+    "startFrame": 1110,
+    "endFrame": 1372
+  },
+  {
+    "index": 5,
+    "text": "Trong máy tính, ổ khóa và chìa khóa được tạo bằng toán học.",
+    "durSec": 4.872,
+    "frames": 146,
+    "startFrame": 1372,
+    "endFrame": 1518
+  },
+  {
+    "index": 6,
+    "text": "Hệ thống này bắt đầu bằng hai số nguyên tố bí mật chỉ chủ sở hữu biết, ví dụ 61 và 53.",
+    "durSec": 7.992,
+    "frames": 240,
+    "startFrame": 1518,
+    "endFrame": 1758
+  },
+  {
+    "index": 7,
+    "text": "Nhân chúng lại rất dễ: 61 nhân 53 bằng 3233.",
+    "durSec": 6.624,
+    "frames": 199,
+    "startFrame": 1758,
+    "endFrame": 1957
+  },
+  {
+    "index": 8,
+    "text": "Nhưng nếu tôi chỉ đưa bạn 3233 và hỏi hai số nguyên tố nào tạo ra nó... việc tìm ngược lại là bài toán khó.",
+    "durSec": 9.36,
+    "frames": 281,
+    "startFrame": 1957,
+    "endFrame": 2238
+  },
+  {
+    "index": 9,
+    "text": "Với 3233 thì dễ, nhưng hệ thống thật dùng những số nguyên tố dài hàng trăm chữ số.",
+    "durSec": 8.016,
+    "frames": 240,
+    "startFrame": 2238,
+    "endFrame": 2478
+  },
+  {
+    "index": 10,
+    "text": "RỒI SAO? Khó tìm hai số nguyên tố thì liên quan gì đến việc đọc tin nhắn?",
+    "durSec": 5.952,
+    "frames": 179,
+    "startFrame": 2478,
+    "endFrame": 2657
+  },
+  {
+    "index": 11,
+    "text": "Từ hai số nguyên tố bí mật, máy tính tạo ra hai con số có quan hệ đặc biệt: Ổ khóa công khai và Chìa khóa bí mật.",
+    "durSec": 8.832,
+    "frames": 265,
+    "startFrame": 2657,
+    "endFrame": 2922
+  },
+  {
+    "index": 12,
+    "text": "Ổ khóa được phát cho tất cả mọi người, còn chìa khóa chỉ người chủ giữ.",
+    "durSec": 5.76,
+    "frames": 173,
+    "startFrame": 2922,
+    "endFrame": 3095
+  },
+  {
+    "index": 13,
+    "text": "Giả sử bạn muốn gửi chữ HELLO. Máy tính biến chữ HELLO thành con số 65.",
+    "durSec": 6.672,
+    "frames": 200,
+    "startFrame": 3095,
+    "endFrame": 3295
+  },
+  {
+    "index": 14,
+    "text": "Bạn lấy ổ khóa công khai, thực hiện phép toán mã hóa... 65 biến thành số 2790 đã khóa!",
+    "durSec": 9.504,
+    "frames": 285,
+    "startFrame": 3295,
+    "endFrame": 3580
+  },
+  {
+    "index": 15,
+    "text": "Thứ chạy qua Internet bây giờ là 2790. Kẻ nghe lén có thể chặn được 2790 và biết cả ổ khóa công khai.",
+    "durSec": 11.232,
+    "frames": 337,
+    "startFrame": 3580,
+    "endFrame": 3917
+  },
+  {
+    "index": 16,
+    "text": "Nhưng ổ khóa công khai được thiết kế để khóa thì dễ, chứ không cho cách dễ dàng để làm ngược lại!",
+    "durSec": 7.032,
+    "frames": 211,
+    "startFrame": 3917,
+    "endFrame": 4128
+  },
+  {
+    "index": 17,
+    "text": "Người chủ biết hai số 61 và 53 từ đầu nên có một đường tắt toán học để tạo chìa khóa bí mật.",
+    "durSec": 7.752,
+    "frames": 233,
+    "startFrame": 4128,
+    "endFrame": 4361
+  },
+  {
+    "index": 18,
+    "text": "Kẻ nghe lén không có 61 và 53, nên phải giải bài toán phân tích thừa số ngược cực kỳ khó!",
+    "durSec": 8.016,
+    "frames": 240,
+    "startFrame": 4361,
+    "endFrame": 4601
+  },
+  {
+    "index": 19,
+    "text": "Tạo ra bài toán thì DỄ... nhưng ĐẢO NGƯỢC NÓ THÌ KHÓ! Sự bất đối xứng này tạo nên lớp bảo vệ cho Internet.",
+    "durSec": 8.784,
+    "frames": 264,
+    "startFrame": 4601,
+    "endFrame": 4865
+  },
+  {
+    "index": 20,
+    "text": "Người nhận dùng chìa khóa bí mật mở 2790 trở lại thành 65... và giải mã thành HELLO ban đầu.",
+    "durSec": 8.4,
+    "frames": 252,
+    "startFrame": 4865,
+    "endFrame": 5117
+  },
+  {
+    "index": 21,
+    "text": "Hệ thống dùng chìa khóa công khai và chìa khóa bí mật này gọi là RSA. Nhưng máy tính lượng tử có thể phá nó bằng cách nào?",
+    "durSec": 9.864,
+    "frames": 296,
+    "startFrame": 5117,
+    "endFrame": 5413
+  }
+]
