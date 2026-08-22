@@ -3,7 +3,6 @@ import {
   AbsoluteFill,
   Audio,
   interpolate,
-  Sequence,
   spring,
   staticFile,
   useCurrentFrame,
@@ -12,7 +11,7 @@ import {
 
 export const DerivativeConcept: React.FC = () => {
   const frame = useCurrentFrame();
-  const { fps, durationInFrames } = useVideoConfig();
+  const { fps } = useVideoConfig();
 
   // Header entrance (Spring)
   const headerSpring = spring({

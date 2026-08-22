@@ -5,7 +5,6 @@ import {
   Series,
   staticFile,
   useCurrentFrame,
-  useVideoConfig,
 } from "remotion";
 import { Scene1Intro } from "./scenes/Scene1Intro";
 import { Scene2Graph } from "./scenes/Scene2Graph";

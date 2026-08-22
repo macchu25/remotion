@@ -1,5 +1,5 @@
 import React from "react";
-import { interpolate, spring, useCurrentFrame, useVideoConfig } from "remotion";
+import { Img, interpolate, spring, staticFile, useCurrentFrame, useVideoConfig } from "remotion";
 import { CameraRig } from "../../camera/CameraRig";
 import { KaTeXLabel } from "../../primitives/KaTeXLabel";
 import { SpatialGrid } from "../../primitives/SpatialGrid";
@@ -8,26 +8,59 @@ export const Chapter04_PlaceValueZero: React.FC = () => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
 
-  // Phase 1: Spatial Columns (Hundreds | Tens | Ones)
-  const columnsOpacity = interpolate(frame, [0, 40], [0, 1], { extrapolateRight: "clamp" });
-
-  // Phase 2: Emptiness pulse in Tens slot (60 - 150 frames)
-  const zeroPulse = Math.sin(frame / 10) * 0.15 + 1;
-
-  // Phase 3: Crystallization of Zero (150 - 270 frames)
-  const zeroReveal = spring({
-    frame: frame - 150,
-    fps,
-    config: { damping: 12, mass: 0.6, stiffness: 150 },
+  // Establishing Image Slow Zoom & Fade (0 - 220 frames, Sub 1)
+  const imgOpacity = interpolate(frame, [0, 15, 160, 215], [0, 0.42, 0.42, 0], {
+    extrapolateRight: "clamp",
+  });
+  const imgScale = interpolate(frame, [0, 220], [1.0, 1.07], {
+    extrapolateRight: "clamp",
   });
 
-  // Phase 4: Expansion Sequence 5 -> 50 -> 500 -> 5000 (270 - 450 frames)
-  const expansionStep = Math.floor(interpolate(frame, [280, 420], [0, 4], { extrapolateRight: "clamp" }));
+  // Phase 1: Spatial Columns (10 - 215 frames, Sub 1)
+  const columnsOpacity = interpolate(frame, [10, 50], [0, 1], { extrapolateRight: "clamp" });
+
+  // Phase 2: Emptiness pulse in Tens slot (221 - 465 frames, Sub 2)
+  const zeroPulse = Math.sin(frame / 10) * 0.15 + 1;
+
+  // Phase 3: Crystallization of Zero on Impact (Impact frame: 471, Sub 3)
+  const zeroReveal = spring({
+    frame: frame - 471,
+    fps,
+    config: { damping: 16, mass: 0.6, stiffness: 130 },
+  });
+
+  // Phase 4: Expansion Sequence 5 -> 50 -> 500 -> 5000 (500 - 620 frames)
+  const expansionStep = Math.floor(interpolate(frame, [500, 610], [0, 4], { extrapolateRight: "clamp" }));
 
   const numbers = ["5", "50", "500", "5000", "50000"];
 
   return (
     <div style={{ width: 1920, height: 1080, backgroundColor: "#020617", position: "relative", overflow: "hidden" }}>
+      {/* Ancient Zero Manuscript Atmosphere */}
+      {imgOpacity > 0 && (
+        <div
+          style={{
+            position: "absolute",
+            inset: 0,
+            opacity: imgOpacity,
+            transform: `scale(${imgScale})`,
+            filter: "brightness(0.9) contrast(1.1)",
+          }}
+        >
+          <Img
+            src={staticFile("images/ch04_ancient_zero_manuscript.jpg")}
+            style={{ width: "100%", height: "100%", objectFit: "cover" }}
+          />
+          <div
+            style={{
+              position: "absolute",
+              inset: 0,
+              background: "radial-gradient(circle at 50% 50%, rgba(2, 6, 23, 0.35) 0%, rgba(2, 6, 23, 0.95) 100%)",
+            }}
+          />
+        </div>
+      )}
+
       <SpatialGrid opacity={0.15} />
 
       <CameraRig panBehavior="slow_push">

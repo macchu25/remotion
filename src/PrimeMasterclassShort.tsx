@@ -103,6 +103,7 @@ export const PrimeMasterclassShort: React.FC<z.infer<typeof masterclassCompSchem
         bgmEnabled={bgmEnabled}
         bgmTrack={bgmTrack}
         bgmVolume={bgmVolume}
+        bgmStartFrame={0}
         overrideVolume={effectiveVolume}
       />
 

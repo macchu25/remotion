@@ -1,7 +1,8 @@
 import "./index.css";
 import { Composition } from "remotion";
 import { EvolutionMasterFilm } from "./evolution/EvolutionMasterFilm";
-import { TOTAL_FILM_FRAMES } from "./evolution/timeline/chapterCues";
+import { EvolutionCinematicHook } from "./evolution/hook/EvolutionCinematicHook";
+import { CHAPTER_CUES, HOOK_DURATION_FRAMES } from "./evolution/timeline/chapterCues";
 import { DivideByZeroShort } from "./DivideByZeroShort";
 import { NegativeTimesNegativeShort } from "./NegativeTimesNegativeShort";
 import { PrimeProtectionShort, primeCompSchema } from "./PrimeProtectionShort";
@@ -10,20 +11,39 @@ import {
   masterclassCompSchema,
 } from "./PrimeMasterclassShort";
 
-// ===========================================================================
-// REMOTION ROOT — MASTER FILM & SHORTS
-// ===========================================================================
+// Total frames for Full Epic Master Film (Cinematic Hook + all 42 Chapters)
+const TOTAL_MASTER_FILM_FRAMES =
+  HOOK_DURATION_FRAMES +
+  CHAPTER_CUES.reduce((sum, c) => sum + c.durationInFrames, 0);
 
 export const RemotionRoot: React.FC = () => {
   return (
     <>
-      {/* ===== THE EVOLUTION OF MATHEMATICS — MASTER FILM (16:9 1080p) ===== */}
+      {/* ===== THE EVOLUTION OF MATHEMATICS — FULL MASTER FILM (Hook + 42 Chapters) ===== */}
+      <Composition
+        id="EvolutionOfMathematics"
+        component={EvolutionMasterFilm}
+        durationInFrames={TOTAL_MASTER_FILM_FRAMES}
+        fps={30}
+        width={1920}
+        height={1080}
+      />
 
-      {/* ===== MASTERCLASS PEDAGOGY SHORT (COMPREHENSIVE PEDAGOGY EDITION) ===== */}
+      {/* ===== THE CINEMATIC HOOK INTRO ===== */}
+      <Composition
+        id="EvolutionCinematicHook"
+        component={EvolutionCinematicHook}
+        durationInFrames={HOOK_DURATION_FRAMES}
+        fps={30}
+        width={1920}
+        height={1080}
+      />
+
+      {/* ===== MASTERCLASS PEDAGOGY SHORT ===== */}
       <Composition
         id="PrimeMasterclassShort"
         component={PrimeMasterclassShort}
-        durationInFrames={1933}
+        durationInFrames={1800}
         fps={30}
         width={1080}
         height={1920}
@@ -35,24 +55,42 @@ export const RemotionRoot: React.FC = () => {
           bgmVolume: 0.08,
         }}
       />
+
+      {/* ===== PRIME PROTECTION SHORT ===== */}
       <Composition
-        id="PrimeMasterclassShortFull"
-        component={PrimeMasterclassShort}
-        durationInFrames={5413}
+        id="PrimeProtectionShort"
+        component={PrimeProtectionShort}
+        durationInFrames={1350}
         fps={30}
         width={1080}
         height={1920}
-        schema={masterclassCompSchema}
+        schema={primeCompSchema}
         defaultProps={{
-          playbackSpeed: 1.75,
+          playbackSpeed: 2.8,
           bgmEnabled: true,
-          bgmTrack: "",
           bgmVolume: 0.08,
         }}
       />
-      {/* ===== PRIME PROTECTION SHORT (VERSION 1) ===== */}
+
       {/* ===== SHORT 02: NEGATIVE × NEGATIVE = POSITIVE ===== */}
+      <Composition
+        id="NegativeTimesNegativeShort"
+        component={NegativeTimesNegativeShort}
+        durationInFrames={1350}
+        fps={30}
+        width={1080}
+        height={1920}
+      />
+
       {/* ===== SHORT 01: DIVIDE BY ZERO ===== */}
+      <Composition
+        id="DivideByZeroShort"
+        component={DivideByZeroShort}
+        durationInFrames={1350}
+        fps={30}
+        width={1080}
+        height={1920}
+      />
     </>
   );
 };

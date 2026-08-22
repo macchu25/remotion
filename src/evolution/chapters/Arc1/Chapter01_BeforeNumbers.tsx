@@ -1,5 +1,5 @@
 import React from "react";
-import { interpolate, spring, useCurrentFrame, useVideoConfig } from "remotion";
+import { Img, interpolate, spring, staticFile, useCurrentFrame, useVideoConfig } from "remotion";
 import { CameraRig } from "../../camera/CameraRig";
 import { KaTeXLabel } from "../../primitives/KaTeXLabel";
 import { MathDot } from "../../primitives/MathDot";
@@ -9,26 +9,60 @@ export const Chapter01_BeforeNumbers: React.FC = () => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
 
-  // Phase 1: Primordial Point (0 - 90 frames)
-  const dot1Opacity = interpolate(frame, [10, 40], [0, 1], { extrapolateRight: "clamp" });
-  const dot2Opacity = interpolate(frame, [45, 75], [0, 1], { extrapolateRight: "clamp" });
-  const dot3Opacity = interpolate(frame, [80, 110], [0, 1], { extrapolateRight: "clamp" });
+  // Establishing Image Slow Zoom & Fade (0 - 220 frames)
+  const imgOpacity = interpolate(frame, [0, 15, 170, 220], [0, 0.45, 0.45, 0], {
+    extrapolateRight: "clamp",
+  });
+  const imgScale = interpolate(frame, [0, 220], [1.0, 1.08], {
+    extrapolateRight: "clamp",
+  });
 
-  // Phase 2: Morphing to Tally Marks (110 - 200 frames)
-  const tallyTransform = interpolate(frame, [120, 160], [0, 1], { extrapolateRight: "clamp" });
+  // Phase 1: Primordial Entities / Dots (10 - 179 frames, Sub 1)
+  const dot1Opacity = interpolate(frame, [10, 50], [0, 1], { extrapolateRight: "clamp" });
+  const dot2Opacity = interpolate(frame, [55, 95], [0, 1], { extrapolateRight: "clamp" });
+  const dot3Opacity = interpolate(frame, [100, 140], [0, 1], { extrapolateRight: "clamp" });
 
-  // Phase 3: Crowding discomfort to 5-grouping (200 - 290 frames)
-  const groupCompress = interpolate(frame, [220, 270], [0, 1], { extrapolateRight: "clamp" });
+  // Phase 2: Morphing to Tally Marks (185 - 339 frames, Sub 2)
+  const tallyTransform = interpolate(frame, [180, 215], [0, 1], { extrapolateRight: "clamp" });
 
-  // Phase 4: Final Reveal of "10" (290 - 360 frames)
+  // Phase 3: Grouping & Compression into "10" (345 - 565 frames, Sub 3)
+  const groupCompress = interpolate(frame, [340, 390], [0, 1], { extrapolateRight: "clamp" });
+
+  // Phase 4: Final Reveal of "10" on impact (Impact frame: 431)
   const reveal10 = spring({
-    frame: frame - 290,
+    frame: frame - 431,
     fps,
-    config: { damping: 12, mass: 0.8, stiffness: 140 },
+    config: { damping: 14, mass: 0.8, stiffness: 140 },
   });
 
   return (
     <div style={{ width: 1920, height: 1080, backgroundColor: "#020617", position: "relative", overflow: "hidden" }}>
+      {/* Prehistoric Establishing Image Atmosphere */}
+      {imgOpacity > 0 && (
+        <div
+          style={{
+            position: "absolute",
+            inset: 0,
+            opacity: imgOpacity,
+            transform: `scale(${imgScale})`,
+            filter: "brightness(0.9) contrast(1.1)",
+          }}
+        >
+          <Img
+            src={staticFile("images/ch01_prehistoric_bone.jpg")}
+            style={{ width: "100%", height: "100%", objectFit: "cover" }}
+          />
+          {/* Subtle gradient vignette to blend with dark math void */}
+          <div
+            style={{
+              position: "absolute",
+              inset: 0,
+              background: "radial-gradient(circle at 60% 50%, rgba(2, 6, 23, 0.4) 0%, rgba(2, 6, 23, 0.95) 100%)",
+            }}
+          />
+        </div>
+      )}
+
       <SpatialGrid opacity={0.08} />
 
       <CameraRig panBehavior="slow_push">

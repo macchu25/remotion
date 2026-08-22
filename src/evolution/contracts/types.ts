@@ -92,3 +92,29 @@ export interface ChapterAnimationContract {
     svgNodes: number;
   };
 }
+
+export type SubtitleMotionPreset =
+  | "calmExplain"
+  | "discovery"
+  | "question"
+  | "definition"
+  | "majorReveal"
+  | "technicalTerm"
+  | "transition";
+
+export type SubtitlePosition = "bottom" | "top" | "top-right" | "bottom-right" | "bottom-left" | "center";
+
+export interface SubtitleCue {
+  id: string;
+  chapterIndex: number;
+  startFrame: number;
+  endFrame: number;
+  impactFrame?: number;
+  text: string;
+  emphasizedWords?: string[];
+  motionPreset?: SubtitleMotionPreset;
+  position?: SubtitlePosition;
+  equationNote?: string;
+  voiceFrames?: number;
+  durationSec?: number;
+}

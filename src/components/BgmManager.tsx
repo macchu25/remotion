@@ -1,12 +1,6 @@
-import React, { useEffect, useRef } from "react";
+import React from "react";
 import { Audio, staticFile } from "remotion";
 import { z } from "zod";
-
-// ===========================================================================
-// HYBRID BGM MANAGER
-// 1. Studio Preview: Plays audio live via HTML5 Audio & returns NULL (Zero green timeline rows!)
-// 2. Headless Render: Renders Remotion Audio component into the final MP4 video output!
-// ===========================================================================
 
 export const bgmSchema = z.object({
   bgmEnabled: z
@@ -44,51 +38,12 @@ export const BgmManager: React.FC<BgmManagerProps> = ({
   bgmStartFrame = 0,
   overrideVolume,
 }) => {
-  const audioRef = useRef<HTMLAudioElement | null>(null);
   const finalVolume = overrideVolume !== undefined ? overrideVolume : bgmVolume;
-
-  const isStudioPreview =
-    typeof window !== "undefined" &&
-    Boolean(window.location && (window.location.host.includes("localhost") || window.location.host.includes("127.0.0.1")));
-
-  // HTML5 Audio for Studio Preview (Plays live audio without creating timeline rows!)
-  useEffect(() => {
-    if (isStudioPreview) {
-      let audio = audioRef.current;
-      const targetSrc = staticFile(bgmTrack);
-      if (!audio || audio.src !== targetSrc) {
-        if (audio) audio.pause();
-        audio = new window.Audio(targetSrc);
-        audio.loop = true;
-        audioRef.current = audio;
-      }
-
-      audio.volume = bgmEnabled ? Math.max(0, Math.min(1, finalVolume)) : 0;
-
-      if (bgmEnabled && finalVolume > 0) {
-        audio.play().catch(() => {});
-      } else {
-        audio.pause();
-      }
-    }
-
-    return () => {
-      if (audioRef.current) {
-        audioRef.current.pause();
-      }
-    };
-  }, [isStudioPreview, bgmEnabled, bgmTrack, finalVolume]);
 
   if (!bgmEnabled || !bgmTrack || bgmTrack === "none" || finalVolume <= 0) {
     return null;
   }
 
-  // In Studio Preview: Return NULL so NO green audio track row appears in the bottom timeline editor!
-  if (isStudioPreview) {
-    return null;
-  }
-
-  // During Headless MP4 Render: Render Remotion Audio component into the output video file!
   return (
     <Audio
       src={staticFile(bgmTrack)}

@@ -2,7 +2,6 @@ import React from "react";
 import {
   AbsoluteFill,
   Audio,
-  interpolate,
   Sequence,
   spring,
   staticFile,
@@ -66,12 +65,6 @@ export const PrimeProtectionShort: React.FC<z.infer<typeof primeCompSchema>> = (
 
   const progressPercent = (frame / durationInFrames) * 100;
   const unscaledFrame = Math.round(frame * playbackSpeed);
-
-  // Audio Music Ducking
-  let effectiveVolume = bgmEnabled ? bgmVolume : 0.0;
-  if ((unscaledFrame >= 2144 && unscaledFrame <= 2369) || unscaledFrame >= 2650) {
-    effectiveVolume = 0.0;
-  }
 
   const currentCap = cues.find((c) => unscaledFrame >= c.startFrame && unscaledFrame < c.endFrame);
 

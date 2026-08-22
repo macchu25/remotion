@@ -12,7 +12,7 @@ import {
 
 export const TikTokMathMasterclass: React.FC = () => {
   const frame = useCurrentFrame();
-  const { fps, durationInFrames } = useVideoConfig();
+  const { durationInFrames } = useVideoConfig();
 
   // Progress Bar percentage
   const progressPercent = (frame / durationInFrames) * 100;

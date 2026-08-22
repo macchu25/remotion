@@ -1,5 +1,5 @@
 import React from "react";
-import { interpolate, spring, useCurrentFrame, useVideoConfig } from "remotion";
+import { Img, interpolate, spring, staticFile, useCurrentFrame, useVideoConfig } from "remotion";
 import { CameraRig } from "../../camera/CameraRig";
 import { KaTeXLabel } from "../../primitives/KaTeXLabel";
 import { SpatialGrid } from "../../primitives/SpatialGrid";
@@ -8,21 +8,54 @@ export const Chapter02_MarksGrouping: React.FC = () => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
 
-  // Phase 1: Unorganized Mark Clutter (0 - 120 frames)
-  const clutterProgress = interpolate(frame, [0, 90], [0, 1], { extrapolateRight: "clamp" });
-
-  // Phase 2: Snap into Columns / 5-groups (120 - 240 frames)
-  const snapProgress = spring({
-    frame: frame - 120,
-    fps,
-    config: { damping: 15, mass: 0.7, stiffness: 150 },
+  // Establishing Image Slow Zoom & Fade (0 - 200 frames, Sub 1)
+  const imgOpacity = interpolate(frame, [0, 15, 140, 185], [0, 0.42, 0.42, 0], {
+    extrapolateRight: "clamp",
+  });
+  const imgScale = interpolate(frame, [0, 200], [1.0, 1.07], {
+    extrapolateRight: "clamp",
   });
 
-  // Phase 3: Emergent Order (240 - 360 frames)
-  const labelOpacity = interpolate(frame, [250, 300], [0, 1], { extrapolateRight: "clamp" });
+  // Phase 1: Unorganized Mark Clutter (10 - 194 frames, Sub 1)
+  const clutterProgress = interpolate(frame, [10, 80], [0, 1], { extrapolateRight: "clamp" });
+
+  // Phase 2: Snap into Columns / 5-groups (200 - 398 frames, Sub 2)
+  const snapProgress = spring({
+    frame: frame - 200,
+    fps,
+    config: { damping: 18, mass: 0.6, stiffness: 120 },
+  });
+
+  // Phase 3: Emergent Order & Cognitive Labels (404 - 554 frames, Sub 3)
+  const labelOpacity = interpolate(frame, [404, 450], [0, 1], { extrapolateRight: "clamp" });
 
   return (
     <div style={{ width: 1920, height: 1080, backgroundColor: "#020617", position: "relative", overflow: "hidden" }}>
+      {/* Ancient Cave Tally Carving Atmosphere */}
+      {imgOpacity > 0 && (
+        <div
+          style={{
+            position: "absolute",
+            inset: 0,
+            opacity: imgOpacity,
+            transform: `scale(${imgScale})`,
+            filter: "brightness(0.9) contrast(1.1)",
+          }}
+        >
+          <Img
+            src={staticFile("images/ch02_cave_tally_carving.jpg")}
+            style={{ width: "100%", height: "100%", objectFit: "cover" }}
+          />
+          <div
+            style={{
+              position: "absolute",
+              inset: 0,
+              background: "radial-gradient(circle at 50% 50%, rgba(2, 6, 23, 0.35) 0%, rgba(2, 6, 23, 0.95) 100%)",
+            }}
+          />
+        </div>
+      )}
+
       <SpatialGrid opacity={0.12} />
 
       <CameraRig panBehavior="lateral_track">

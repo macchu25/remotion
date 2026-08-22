@@ -1,13 +1,28 @@
 @import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,700&family=Fira+Code:wght@500;700&display=swap');
+@import "katex/dist/katex.min.css";
 
 * {
   box-sizing: border-box;
 }
 
-body, html, div, span, p, text {
+body, html {
   font-family: 'Be Vietnam Pro', system-ui, -apple-system, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+/* Ensure KaTeX mathematical glyphs and Greek symbols preserve genuine Computer Modern font */
+.katex {
+  font-family: KaTeX_Main, KaTeX_Math, 'Times New Roman', serif !important;
+  text-rendering: auto;
+}
+
+.katex * {
+  font-family: inherit;
+}
+
+.katex .text {
+  font-family: 'Be Vietnam Pro', system-ui, -apple-system, sans-serif !important;
 }
 
 code, pre {

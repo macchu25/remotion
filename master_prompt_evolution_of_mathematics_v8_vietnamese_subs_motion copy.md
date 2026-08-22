@@ -1,16 +1,16 @@
 ---
-title: "MASTER PROMPT V6 — THE EVOLUTION OF MATHEMATICS (VOICEOVER + IMAGE GENERATION + ANIMATION CONTRACT EDITION)"
+title: "MASTER PROMPT V8 — THE EVOLUTION OF MATHEMATICS (VIETNAMESE SUBTITLES + MOTION CAPTIONS EDITION)"
 format: "Remotion long-form visual film"
 duration_target: "60-120 minutes"
 aspect_ratio: "16:9"
 voiceover: true
 audio: "voiceover + music + diverse sound effects"
-version: "V6 — preserves V5 voice-sync architecture and adds a controlled image-generation system, image animation rules, style consistency, asset manifests, and image-to-math transition logic"
+version: "V8 — preserves V7 and makes all subtitles Vietnamese-only, adds mandatory subtitle entrance/exit motion, keyword emphasis animation, and voice-synchronized caption motion rules"
 ---
 
-# MASTER PROMPT V6 — THE EVOLUTION OF MATHEMATICS (VOICEOVER + IMAGE GENERATION + ANIMATION CONTRACT EDITION)
+# MASTER PROMPT V8 — THE EVOLUTION OF MATHEMATICS (VIETNAMESE SUBTITLES + MOTION CAPTIONS EDITION)
 
-> V6 changelog: preserves the complete 42-chapter V5 structure, voiceover-as-master-clock synchronization, Chapter Animation Contracts, production workflow, sound design, and continuity rules. V6 adds a controlled image-generation layer for historical atmosphere, physical context, cinematic establishing shots, abstract environments, technology imagery, and visual metaphors. Generated images are supporting assets only: they must never replace mathematical explanation that is better expressed through Remotion/SVG/Canvas animation.
+> V8 changelog: preserves the full V7 production system, 42 chapters, voiceover master clock, mandatory full subtitles, image-generation rules, visual-response rules, sound design, and animation contracts. V8 makes subtitles explicitly Vietnamese, requires every subtitle phrase to have designed entrance/hold/exit motion, adds keyword-level emphasis animation tied to real spoken timestamps, and adds anti-fatigue rules so subtitle motion stays expressive without becoming hyperactive.
 
 You are an AI Film Director, Mathematical Visualizer, Motion Designer, Sound Designer, Audio Mixer, and Remotion Developer.
 
@@ -342,19 +342,421 @@ Do not scatter local frame guesses across chapter components.
 
 ---
 
-# CAPTION POLICY
+# MANDATORY SUBTITLE SYSTEM
 
-Captions are optional-supportive, not the primary visual layer.
+ALL SUBTITLES MUST BE IN VIETNAMESE.
 
-For a long 16:9 documentary-style film:
+The narration may also be Vietnamese, and the subtitle text must faithfully match the spoken Vietnamese narration.
 
-- do not display full karaoke subtitles by default
-- use concise captions only for key phrases, terms, equations, or chapter questions
-- if full subtitles are required, keep them visually separate from mathematical focal areas
-- subtitles must follow real narration timestamps
-- key mathematical terms may appear as designed typography at the exact spoken cue
+Do not silently switch subtitle language to English.
 
-Do not duplicate the full narration on screen while complex animation is happening.
+Technical terms may appear in English only when useful, but the subtitle must still remain understandable in Vietnamese.
+
+Preferred pattern:
+
+`đạo hàm (derivative)`
+
+rather than showing only:
+
+`derivative`
+
+For globally standard symbols such as:
+`π`, `∞`, `∫`, `∇`, `P(A)`, matrices, binary values, equations
+
+keep the standard mathematical notation.
+
+The human-readable subtitle surrounding those symbols must be Vietnamese.
+
+
+FULL SUBTITLES ARE REQUIRED FOR THE ENTIRE SPOKEN NARRATION.
+
+Every spoken phrase must have corresponding subtitles derived from the real narration timing.
+
+Do NOT omit subtitles because the scene is visually complex.
+
+Do NOT summarize narration into occasional captions only.
+
+Do NOT estimate subtitle timing if real voice timestamps are available.
+
+Timing priority:
+
+1. word-level timestamps
+2. phrase-level timestamps
+3. sentence-level timestamps
+4. waveform-aligned manual cues
+5. estimation only if no real timing data exists
+
+The subtitle system must be generated from the SAME voice cue source used by visuals, SFX, and music.
+
+The relationship is:
+
+VOICE AUDIO
+→ REAL TIMESTAMPS
+→ SUBTITLE PHRASES
+→ VISUAL CUES
+→ SFX
+→ MUSIC AUTOMATION
+
+## Subtitle segmentation
+
+Do not show entire long sentences as one subtitle block.
+
+Break narration into readable phrase units.
+
+Preferred:
+- 2–8 words per phrase when possible
+- one semantic idea per subtitle unit
+- line breaks at natural language boundaries
+
+Avoid:
+- long paragraph subtitles
+- splitting mathematical expressions awkwardly
+- breaking names/terms in the middle
+
+## Subtitle sync
+
+Subtitle appearance should align tightly to speech.
+
+For important words:
+- highlight can follow the spoken word
+- phrase box may appear slightly before the first phoneme only when necessary for readability
+- phrase must not remain long after speech has moved on
+
+Do not create perceptible subtitle lag.
+
+## Word emphasis
+
+Important words may receive:
+- weight change
+- scale emphasis
+- underline
+- opacity emphasis
+- subtle positional emphasis
+- term-specific accent treatment
+
+Examples:
+ZERO
+INFINITY
+DERIVATIVE
+ALGORITHM
+BINARY
+MATRIX
+PRIME NUMBER
+
+Do not animate every word.
+
+Highlight only semantically important words.
+
+## Mathematical expression rule
+
+Do NOT force full equations into normal subtitle boxes.
+
+When narration says an equation or mathematical expression:
+
+VOICE:
+"ba bình phương cộng bốn bình phương bằng năm bình phương"
+
+Subtitle may show:
+"3² + 4² = 5²"
+
+But if the equation is already the primary visual:
+- keep subtitle short
+- let the equation live in the math layer
+- do not duplicate a large equation twice on screen
+
+## Subtitle layout
+
+Default subtitle zone:
+lower third / lower-safe area.
+
+But subtitle position MUST be adaptive.
+
+If lower area contains important math:
+move subtitle upward or laterally.
+
+If center is occupied:
+use a safe lower strip.
+
+If important visual motion crosses the subtitle zone:
+reposition the subtitle or redesign the composition.
+
+The subtitle layer must never cover:
+- primary equation
+- graph focal point
+- geometry proof
+- key object
+- important number transformation
+- chapter title
+- critical generated-image subject
+
+## Subtitle collision system
+
+Implement a subtitle-safe layout system.
+
+Each chapter should declare:
+- primary visual bounding area
+- subtitle-safe zones
+- forbidden overlap regions
+
+When possible, subtitle placement should be driven by scene metadata rather than hardcoded global coordinates.
+
+Example:
+
+```ts
+type SubtitleLayout = {
+  preferred: "bottom" | "top" | "left" | "right";
+  safeZones: Rect[];
+  forbiddenZones: Rect[];
+};
+```
+
+## Subtitle style consistency
+
+Use one core subtitle system across the film.
+
+Maintain:
+- consistent typeface
+- consistent sizing hierarchy
+- consistent stroke/shadow/readability
+- consistent spacing
+- consistent animation style
+
+Chapter-specific variation is allowed only when semantically justified.
+
+Do not redesign subtitle styling every chapter.
+
+## Subtitle animation
+
+Use restrained animation.
+
+Preferred:
+- fade/slide with small distance
+- soft scale settle
+- word emphasis
+- mask reveal
+- phrase replacement
+
+Avoid:
+- bouncing every word
+- aggressive kinetic typography for all narration
+- spinning text
+- excessive zoom
+- TikTok-style hyperactive caption behavior across a 60–120 minute film
+
+## Mandatory subtitle motion
+
+EVERY subtitle phrase must have an intentional entrance, hold, and exit behavior.
+
+Subtitles must NOT simply appear as static text for the entire film.
+
+Each subtitle unit should use a restrained motion pattern chosen from a controlled motion library.
+
+Recommended entrance styles:
+- soft fade + slight upward drift
+- short horizontal slide
+- mask reveal
+- subtle scale-in from 96% → 100%
+- word-group reveal
+- opacity + tracking settle
+- line-by-line reveal for two-line subtitles
+
+Recommended exit styles:
+- soft fade
+- slight downward drift
+- masked wipe
+- short directional slide
+- opacity decay synchronized to phrase end
+
+Do NOT use:
+- constant bouncing
+- spinning captions
+- large elastic overshoot on every phrase
+- random direction changes
+- aggressive zoom punches for ordinary narration
+- identical motion for every subtitle across 60–120 minutes
+
+## Subtitle motion timing
+
+Subtitle motion must be synchronized to the REAL spoken phrase.
+
+A typical phrase can use:
+
+ANTICIPATION:
+2–4 frames before first spoken word when readability requires it
+
+ENTRANCE:
+4–8 frames
+
+HOLD:
+during the spoken phrase
+
+KEYWORD IMPACT:
+exactly aligned to the relevant spoken word or semantic cue
+
+EXIT:
+4–10 frames after the phrase ends, unless the next phrase replaces it immediately
+
+These are starting ranges, not rigid constants.
+
+Use actual voice timing.
+
+## Keyword emphasis animation
+
+Important words should receive a controlled secondary motion.
+
+Possible treatments:
+- 100% → 106% → 100% scale pulse
+- brief weight increase
+- underline draw
+- accent bar reveal
+- subtle glow
+- tracking tighten
+- baseline lift
+- background capsule emphasis
+- word-specific color accent if allowed by the Arc palette
+
+Keyword emphasis must land on the actual spoken word cue.
+
+Examples:
+
+Narration:
+“Và đây là lúc **số 0** thay đổi mọi thứ.”
+
+Subtitle:
+“Và đây là lúc SỐ 0 thay đổi mọi thứ.”
+
+At the spoken cue for “số 0”:
+- `SỐ 0` receives the emphasis motion
+- Zero visual impact may occur simultaneously
+- Zero SFX motif may land on the same semantic cue
+
+## Subtitle motion families
+
+Create reusable motion families rather than improvising every phrase.
+
+Example:
+
+```ts
+const subtitleMotionPresets = {
+  calmExplain: {...},
+  discovery: {...},
+  question: {...},
+  definition: {...},
+  majorReveal: {...},
+  technicalTerm: {...},
+  transition: {...},
+};
+```
+
+Suggested use:
+
+`calmExplain`
+- subtle fade + 8–14px rise
+- minimal keyword motion
+
+`question`
+- slightly slower reveal
+- interrogative phrase holds longer
+- optional emphasis on the questioned concept
+
+`discovery`
+- phrase enters cleanly
+- keyword gets a small impact settle
+
+`majorReveal`
+- background music may thin
+- subtitle appears with stronger but restrained motion
+- key word gets exact cue emphasis
+
+`technicalTerm`
+- Vietnamese explanation first
+- term appears with small label-like lock-in
+
+`transition`
+- subtitle may move in direction of the next camera/scene transition
+
+## Subtitle motion variety rule
+
+Do not use one identical entrance preset for the entire film.
+
+But also do not randomly pick effects.
+
+Motion choice must follow semantic purpose.
+
+Within one chapter:
+- keep a coherent subtitle motion family
+- allow 2–4 variations
+- reserve stronger animation for important beats
+
+Across arcs:
+- early chapters can use softer organic motion
+- geometry/algebra can use more structured motion
+- computation chapters can use more precise modular reveals
+- AI chapters can use smooth distributed motion
+
+## Subtitle and visual co-animation
+
+Subtitle animation should support, not fight, the main visual.
+
+Examples:
+
+If a line is being drawn left-to-right:
+subtitle can reveal left-to-right.
+
+If numbers are grouping:
+subtitle words can settle into grouped phrase units.
+
+If a concept rotates:
+do NOT rotate the subtitle unless semantically necessary.
+
+If the camera rapidly pushes in:
+subtitle can remain stable for readability.
+
+Visual motion has priority over decorative caption motion.
+
+## Long-form subtitle fatigue rule
+
+This film may run 60–120 minutes.
+
+Therefore:
+- keep most subtitle motion subtle
+- reserve strong animation for genuine conceptual impacts
+- reduce caption motion during visually dense scenes
+- use calmer captions during long explanation sections
+- allow some subtitle transitions to be almost invisible
+
+The goal is:
+ALIVE, NOT HYPERACTIVE.
+
+## Subtitle readability
+
+Subtitle must remain legible over:
+- bright generated imagery
+- dark scenes
+- moving graphs
+- particle fields
+- chip visuals
+- complex backgrounds
+
+Use:
+- background plate
+- subtle shadow
+- stroke
+- local blur panel
+- adaptive contrast treatment
+
+as needed.
+
+## Subtitle review
+
+A chapter cannot be marked complete if:
+- any spoken phrase lacks subtitle coverage
+- subtitle timing noticeably lags voice
+- subtitles overlap important visuals
+- text is too dense to read comfortably
+- mathematical terms are mistyped
+- subtitle equations differ from the math layer
+- subtitle animation distracts from the concept
 
 ---
 
@@ -884,6 +1286,18 @@ If three consecutive scenes are primarily generated still images, reconsider whe
 
 Each Chapter Animation Contract must now also include:
 
+## Mandatory Subtitle Plan
+Specify:
+- full subtitle text for every spoken phrase
+- word/phrase timestamp source
+- segmentation
+- emphasized words
+- preferred subtitle zone
+- forbidden visual overlap zones
+- equation-handling notes
+- chapter-specific readability risks
+
+
 ## Generated Image Plan
 Specify:
 
@@ -899,6 +1313,108 @@ Specify:
 - Whether it bridges to the next chapter
 
 If `no`, explicitly state that the chapter is stronger as pure programmatic animation.
+
+---
+
+# MANDATORY VISUAL SUPPORT RULE
+
+VOICEOVER MUST NEVER BECOME THE ONLY EXPLANATORY LAYER.
+
+Every meaningful narration beat must have a corresponding visual response.
+
+The response may be:
+- programmatic math animation
+- equation transformation
+- diagram
+- geometry
+- graph
+- number-line motion
+- generated image
+- physical visual metaphor
+- object animation
+- camera reframing
+- data visualization
+- historical image context
+- symbolic visual
+- image-to-math transformation
+
+But the chapter must NEVER become:
+
+VOICE + STATIC BACKGROUND + SUBTITLE
+
+for long stretches.
+
+## Visual response categories
+
+For each narration cue, assign one:
+
+1. PRIMARY EXPLANATION
+2. SUPPORTING VISUAL
+3. ATMOSPHERIC CONTEXT
+4. SCALE / TRANSITION
+5. HOLD / REFLECTION
+
+Most explanatory narration must map to category 1 or 2.
+
+## Minimum visual activity
+
+If narration continues for more than approximately 3 seconds:
+the visual scene must show meaningful progression.
+
+Examples:
+- an equation advances
+- graph point moves
+- geometry constructs
+- camera reveals new structure
+- image isolates into mathematical overlays
+- data transforms
+- visual focus shifts
+- parameter changes
+- proof develops
+
+Do not use meaningless ambient movement as a substitute for actual explanation.
+
+## Image usage requirement
+
+Generated images are not mandatory in every chapter.
+
+However, if a chapter would materially benefit from:
+- historical physical context
+- realistic technology scale
+- environment
+- civilization context
+- physical object reference
+- cinematic establishing imagery
+
+then the agent SHOULD generate or source a suitable visual asset instead of leaving the chapter visually abstract by default.
+
+The agent must explicitly decide in the Chapter Animation Contract:
+
+`Generated Image Plan: YES / NO`
+
+and justify the choice.
+
+## Visual diversity rule
+
+Across the full film, avoid long runs of only one representation type.
+
+Do not create:
+- 15 minutes of only graphs
+- 10 minutes of only equations
+- 20 minutes of only generated images
+- repeated black-background neon diagrams
+
+Rotate appropriately between:
+- physical imagery
+- geometric visualization
+- equations
+- graphs
+- data
+- diagrams
+- abstract space
+- real-world application
+
+while maintaining coherent arc style.
 
 ---
 
@@ -1190,6 +1706,29 @@ The per-chapter transition rules earlier in this document (morph, decomposition/
 Before implementing ANY chapter, create a concrete animation contract for that chapter. This is not optional planning prose; it is the chapter's production specification and must be reflected in the actual code and cue data.
 
 Each chapter contract must contain:
+
+## 0A. Mandatory Subtitle Contract
+
+All subtitle content in this contract must be Vietnamese.
+
+Also define:
+- entrance motion preset
+- exit motion preset
+- emphasized words
+- word-level impact cues
+- chapter subtitle motion family
+- motion-intensity level
+
+Define:
+- subtitle coverage for 100% of narration
+- segmentation by semantic phrase
+- real timestamp source
+- highlight words
+- adaptive placement rules
+- collision zones with math/visuals
+- equation display strategy
+
+A chapter is not implementation-ready without this subtitle contract.
 
 ## 0. Narration Contract
 Before visual implementation, define:
@@ -3404,10 +3943,21 @@ The film is NOT complete if:
 - generated images use inconsistent styles across adjacent chapters
 - generated image assets have no declared semantic purpose
 - image reveals are not synchronized to narration cues
+- any spoken narration is missing subtitles
+- subtitles use guessed timing despite available real voice timestamps
+- subtitles cover important mathematical visuals
+- subtitles are too dense, too fast, or inconsistent
+- long narration sections have no meaningful visual response
+- chapters rely on voice + subtitles over static backgrounds
+- any normal-language subtitle appears in English instead of Vietnamese without a justified bilingual term
+- subtitle phrases appear with no designed entrance/exit behavior
+- important keyword emphasis is not synchronized to the spoken word
+- subtitle motion is excessively repetitive
+- subtitle motion becomes hyperactive and distracts from the mathematics
 
 ---
 
-# V6 PRODUCTION PRINCIPLE
+# V8 PRODUCTION PRINCIPLE
 
 The film is complete only when concept, animation, continuity, sound, and implementation agree.
 
@@ -3425,6 +3975,41 @@ CONCEPT
 all describe the same idea.
 
 If the rendered result diverges from the contract, revise either the implementation or the contract explicitly. Never let production drift become invisible.
+
+---
+
+# V8 FINAL INVARIANT
+
+For every meaningful spoken beat, verify all required layers:
+
+VOICE
++
+SUBTITLE
++
+VISUAL RESPONSE
++
+MOTION
++
+SFX WHEN SEMANTICALLY USEFUL
++
+MUSIC STATE
+
+All are driven from one cue system.
+
+No spoken phrase may exist in isolation.
+
+No subtitle may exist without the matching voice.
+Every subtitle phrase must be Vietnamese and must have intentional motion synchronized to its real voice cue.
+
+No visual reveal may substantially precede the idea in narration.
+
+No important narration may pass without the screen reacting meaningfully.
+
+The goal is not maximum motion.
+
+The goal is:
+
+EVERY SPOKEN IDEA HAS A VISIBLE CONSEQUENCE.
 
 ---
 

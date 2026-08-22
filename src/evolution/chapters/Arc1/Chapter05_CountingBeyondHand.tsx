@@ -1,5 +1,5 @@
 import React from "react";
-import { interpolate, useCurrentFrame } from "remotion";
+import { Img, interpolate, staticFile, useCurrentFrame } from "remotion";
 import { CameraRig } from "../../camera/CameraRig";
 import { KaTeXLabel } from "../../primitives/KaTeXLabel";
 import { SpatialGrid } from "../../primitives/SpatialGrid";
@@ -7,17 +7,50 @@ import { SpatialGrid } from "../../primitives/SpatialGrid";
 export const Chapter05_CountingBeyondHand: React.FC = () => {
   const frame = useCurrentFrame();
 
-  // Phase 1: Dissolving bodily limits into pure notation (0 - 150 frames)
-  const handDissolve = interpolate(frame, [20, 100], [0, 1], { extrapolateRight: "clamp" });
+  // Establishing Image Slow Zoom & Fade (0 - 240 frames, Sub 1)
+  const imgOpacity = interpolate(frame, [0, 15, 180, 236], [0, 0.42, 0.42, 0], {
+    extrapolateRight: "clamp",
+  });
+  const imgScale = interpolate(frame, [0, 240], [1.0, 1.07], {
+    extrapolateRight: "clamp",
+  });
 
-  // Phase 2: Exponential Scale Expansion (150 - 300 frames)
-  const powerScale = Math.floor(interpolate(frame, [120, 300], [1, 9], { extrapolateRight: "clamp" }));
+  // Phase 1: Dissolving bodily limits into pure notation (10 - 236 frames, Sub 1)
+  const handDissolve = interpolate(frame, [20, 160], [0, 1], { extrapolateRight: "clamp" });
 
-  // Phase 3: Bridge into Geometry (300 - 360 frames)
-  const bridgeProgress = interpolate(frame, [300, 360], [0, 1], { extrapolateRight: "clamp" });
+  // Phase 2: Exponential Scale Expansion (242 - 461 frames, Sub 2)
+  const powerScale = Math.floor(interpolate(frame, [242, 450], [1, 9], { extrapolateRight: "clamp" }));
+
+  // Phase 3: Bridge into Geometry (467 - 597 frames, Sub 3)
+  const bridgeProgress = interpolate(frame, [467, 580], [0, 1], { extrapolateRight: "clamp" });
 
   return (
     <div style={{ width: 1920, height: 1080, backgroundColor: "#020617", position: "relative", overflow: "hidden" }}>
+      {/* Cosmic Astronomical Observatory Atmosphere */}
+      {imgOpacity > 0 && (
+        <div
+          style={{
+            position: "absolute",
+            inset: 0,
+            opacity: imgOpacity,
+            transform: `scale(${imgScale})`,
+            filter: "brightness(0.9) contrast(1.1)",
+          }}
+        >
+          <Img
+            src={staticFile("images/ch05_cosmic_observatory.jpg")}
+            style={{ width: "100%", height: "100%", objectFit: "cover" }}
+          />
+          <div
+            style={{
+              position: "absolute",
+              inset: 0,
+              background: "radial-gradient(circle at 50% 50%, rgba(2, 6, 23, 0.35) 0%, rgba(2, 6, 23, 0.95) 100%)",
+            }}
+          />
+        </div>
+      )}
+
       <SpatialGrid opacity={0.18} />
 
       <CameraRig panBehavior="pullback">

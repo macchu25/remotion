@@ -5,26 +5,27 @@
 import { ChapterCue } from "../contracts/types";
 
 export const FPS = 30;
+export const HOOK_DURATION_FRAMES = 490; // Exact probed real audio duration for 3 hook cues
 
 // Helper to compute absolute frame budgets
 function buildChapterCues(): ChapterCue[] {
   const chapterDurations = [
-    // Arc 1 — Emergence (Ch 1–5)
-    360, 360, 450, 450, 360,
-    // Arc 2 — Structure (Ch 6–9)
-    420, 390, 420, 450,
-    // Arc 3 — Abstraction (Ch 10–17)
-    390, 420, 420, 450, 390, 420, 450, 450,
-    // Arc 4 — Infinity & Calculus (Ch 18–22)
-    480, 480, 450, 420, 420,
-    // Arc 5 — Logic & Computation (Ch 23–29)
-    420, 420, 450, 420, 390, 420, 450,
-    // Arc 6 — Chip & Networks (Ch 30–37)
-    450, 420, 450, 420, 450, 450, 420, 420,
-    // Arc 7 — AI & Modern Civilization (Ch 38–41)
-    480, 480, 510, 480,
-    // Arc 8 — Return (Ch 42)
-    540
+    // Arc 1 — Emergence (Ch 1–5, 1s Visual Lead + 0.1s Snap Gap)
+    495, 466, 462, 476, 491,
+    // Arc 2 — Structure (Ch 6–9, 1s Visual Lead + 0.1s Snap Gap)
+    464, 506, 467, 455,
+    // Arc 3 — Abstraction (Ch 10–17, 1s Visual Lead + 0.1s Snap Gap)
+    476, 445, 488, 524, 559, 534, 544, 544,
+    // Arc 4 — Infinity & Calculus (Ch 18–22, 1s Visual Lead + 0.1s Snap Gap)
+    614, 666, 586, 619, 702,
+    // Arc 5 — Logic & Computation (Ch 23–29, 1s Visual Lead + 0.1s Snap Gap)
+    577, 697, 646, 597, 573, 572, 655,
+    // Arc 6 — Chip & Networks (Ch 30–37, Real Audio Probed)
+    658, 644, 596, 654, 645, 625, 607, 669,
+    // Arc 7 — AI & Modern Civilization (Ch 38–41, Real Audio Probed)
+    585, 631, 604, 606,
+    // Arc 8 — Return (Ch 42, Real Audio Probed)
+    623,
   ];
 
   const chapterTitles = [
@@ -49,7 +50,7 @@ function buildChapterCues(): ChapterCue[] {
     "Arc 8 — Return"
   ];
 
-  let currentFrame = 0;
+  let currentFrame = HOOK_DURATION_FRAMES;
   return chapterDurations.map((duration, idx) => {
     const setupStart = currentFrame;
     const setupEnd = setupStart + Math.floor(duration * 0.2);
