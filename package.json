@@ -28,6 +28,7 @@
   "scripts": {
     "dev": "remotion studio",
     "render": "remotion render src/index.ts PrimeMasterclassShort out/prime_masterclass_short.mp4 --concurrency=100% --gl=angle",
+    "render:evolution": "remotion render src/index.ts EvolutionOfMathematics out/EvolutionOfMathematics.mp4 --concurrency=100% --gl=angle",
     "render:fast": "remotion render src/index.ts PrimeMasterclassShort out/prime_masterclass_short.mp4 --concurrency=100% --gl=angle",
     "clean": "node -e \"const fs=require('fs'); ['node_modules/.cache', '.remotion'].forEach(p => fs.rmSync(p, {recursive: true, force: true})); console.log('Remotion Studio Cache Cleared Cleanly!');\"",
     "build": "remotion bundle",
